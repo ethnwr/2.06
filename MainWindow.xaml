@@ -1,0 +1,62 @@
+<Window x:Class="AllTasksInOne.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Program" Height="400" Width="500" FontSize="14">
+    <TabControl TabStripPlacement="Left" FontSize="12">
+        <!-- Уменьшаем ширину вкладок -->
+        <TabControl.Resources>
+            <Style TargetType="TabItem">
+                <Setter Property="Width" Value="80"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
+        </TabControl.Resources>
+
+        <!-- Задание 1 -->
+        <TabItem Header="Кнопки">
+            <StackPanel VerticalAlignment="Center" Margin="10">
+                <Label Content="Вы довольны зарплатой?" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+                    <Button Content="Да" Width="60" Click="Yes_Click" Margin="5"/>
+                    <Button x:Name="NoBtn" Content="Нет" Width="60" MouseEnter="No_MouseEnter" Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+        </TabItem>
+
+        <!-- Задание 2 -->
+        <TabItem Header="Дата">
+            <StackPanel VerticalAlignment="Center" Margin="10">
+                <DatePicker x:Name="MyDatePicker" Width="180" HorizontalAlignment="Center"/>
+                <Button Content="Показать" Click="ShowDate_Click" Margin="0,10" Width="100"/>
+                <TextBlock x:Name="DateLabel" Text="Дата не выбрана" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </TabItem>
+
+        <!-- Задание 3 -->
+        <TabItem Header="Угадайка">
+            <StackPanel VerticalAlignment="Center">
+                <Button Content="Играть" Click="StartGame_Click" Margin="10" Width="100"/>
+                <TextBlock x:Name="GameStatus" Text="Нажмите 'Играть'" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </TabItem>
+
+        <!-- Задание 4 -->
+        <TabItem Header="Треугольник">
+            <Grid>
+                <Path Fill="#FF4500" Data="M 0,0 L 500,0 L 0,300 Z" Stretch="UniformToFill"/>
+                <Button Content="X" Width="30" Height="30" HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" Margin="10" Click="CloseTriangle_Click"/>
+            </Grid>
+        </TabItem>
+
+        <!-- Задание 5 -->
+        <TabItem Header="Наследование">
+            <Grid>
+                <Path Fill="#4682B4" Data="M 0,0 L 500,0 L 0,300 Z" Stretch="UniformToFill"/>
+                <Button x:Name="HelloBtn" Content="Hi!" Width="40" Height="30" 
+                        HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
+                        Background="#FFA07A" Click="CloseInherited_Click"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
